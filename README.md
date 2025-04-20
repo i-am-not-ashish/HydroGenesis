@@ -1,74 +1,102 @@
-# 🌿 Hydrogensis: Smart IoT-Based Irrigation System
+# 🌿 HydroGenesis – Smart IoT-Based Irrigation System with Machine Learning
 
-Hydrogensis is an advanced IoT-based smart irrigation system designed to automate plant watering and optimize resource use through real-time environmental monitoring and intelligent decision-making. Built using the **ESP32 microcontroller**, it leverages sensor data to ensure healthy plant growth with minimal user intervention. All data is visualized and monitored remotely via **Blynk.Console**, with historical data logged into **Firebase** for further analysis and machine learning integration.
-
----
-
-## 🚀 Project Overview
-
-Hydrogensis automates the irrigation process based on live sensor inputs:
-
-- Activates the water pump when soil moisture drops below 30%.
-- Turns off the pump when moisture reaches 70% to prevent overwatering.
-- Monitors water tank level and sends alerts if the level is critically low.
-- Tracks environmental conditions like temperature, humidity, and light intensity.
-- Enables remote monitoring via Blynk mobile/web dashboards.
+**HydroGenesis** is an intelligent, sensor-driven irrigation system that automates the watering process using real-time environmental data, cloud connectivity, and machine learning. Designed with sustainability and precision agriculture in mind, the system minimizes human intervention, optimizes water usage, and supports energy-efficient control using deep sleep functionality on the ESP32 microcontroller.
 
 ---
 
-## 🔧 Hardware & Components Used
+## 🚀 Key Features
 
-| Component               | Purpose                                      |
-|------------------------|----------------------------------------------|
-| **ESP32**              | Main microcontroller with Wi-Fi              |
-| **Soil Moisture Sensor** | Detects moisture content in soil           |
-| **DHT22 Sensor**       | Measures ambient temperature and humidity    |
-| **LDR Sensor**         | Monitors ambient light intensity             |
-| **SR04M-2 Ultrasonic** | Measures water tank level                    |
-| **Relay Module**       | Switches water pump on/off                   |
-| **Water Pump**         | Provides water to the plant as needed        |
-| **Blynk.Console**      | Remote monitoring, control, and notifications |
-| **Firebase**           | Logs historical sensor data for ML usage     |
+- Automated plant watering using soil moisture thresholds
+- Machine learning-based irrigation prediction
+- Real-time sensor monitoring on **Blynk.Console**
+- Cloud-based data storage with **Firebase Realtime Database**
+- Energy-saving **deep sleep mode** on ESP32
+- Live status updates and user notifications
 
 ---
 
-## 🌱 Key Features
+## 🔧 Technologies Used
 
-### ✅ Automated Watering Logic
-- **Soil Moisture Thresholds**:
-  - If moisture `< 30%`, pump turns **ON**
-  - If moisture `≥ 70%`, pump turns **OFF**
+### 🖥️ Software
+- Arduino IDE
+- Firebase Realtime Database
+- Blynk.Console (web & mobile dashboard)
+- Python (model training and prediction)
+- Google Colab (ML development)
+- Draw.io (circuit and flow diagrams)
 
-- Dynamic threshold-based control to ensure optimal watering and water conservation.
-
-### 🚰 Water Level Monitoring
-- Uses **SR04M-2 Ultrasonic Sensor** to track tank water level.
-- If level `< 5 cm`, an alert is sent via **Blynk app**.
-
-### 🌡️ Environmental Monitoring
-- **DHT22 Sensor** captures temperature and humidity.
-- **LDR Sensor** tracks light intensity.
-- All data displayed in real-time on **Blynk.Console**.
-
-### 🔗 Remote Monitoring
-- Real-time data logging and visual display on Blynk mobile/web.
-- Instant notifications for critical thresholds (e.g., low water level).
+### 🔌 Hardware
+- NodeMCU ESP-32S microcontroller
+- Soil Moisture Sensor
+- DHT22 Temperature & Humidity Sensor
+- LDR Sensor
+- SR04M-2 Ultrasonic Water Level Sensor
+- Relay Module
+- Hi-Link HLK-PM01 5V AC-DC Converter
+- 18W Submersible Water Pump
 
 ---
 
-## 🤖 Future Scope: ML Integration
+## 📂 Project Overview
 
-- **Predictive Watering**: A machine learning model will be trained using historical data (soil moisture, temperature, humidity, light intensity) to predict:
-  - When the plant will need watering next.
-  - When the water tank level will drop from 30 cm to 5 cm.
+HydroGenesis includes two major implementations:
 
-- **Power Optimization**: The ESP32 will intelligently enter sleep mode during idle periods based on predictions, extending device life and saving energy.
+1. **Threshold-Based Irrigation**  
+   Basic ESP32 code that turns the pump ON when soil moisture is below 30% and OFF when it exceeds 70%.
 
-- **Solenoid Valve**: Future versions may include solenoid valve control for improved efficiency and precise irrigation.
+2. **ML-Based Predictive Irrigation**  
+   A Python-trained machine learning model uses sensor data trends to predict when the plant will need watering. ESP32 acts on the prediction and enters deep sleep between cycles for energy efficiency.
+
+Sensor data is also uploaded to Firebase, allowing long-term tracking and cloud-based integration. The Blynk.Console interface gives real-time updates and system notifications to the user.
 
 ---
 
-## 📁 Repository Structure
+## 🧪 How It Works
 
-Every file and folder in this repo is meaningfully named:
+- Sensors feed environmental data to the ESP32
+- The system activates the water pump via a relay when needed
+- Data is transmitted to both **Firebase** and **Blynk**
+- The ML model analyzes trends and predicts irrigation needs
+- ESP32 sleeps or wakes up based on ML output to save power
 
+---
+
+## 🖼️ Documentation and Media
+
+📁 **Google Drive Folder** (thesis, diagrams, images, demo videos):  
+🔗 [Open Documentation Folder](https://drive.google.com/drive/folders/16CPH9fljFklcFjaaLpkzzbaWpg-DEZUX?usp=sharing)
+
+📘 **Thesis PDF** – includes full design, implementation, and results  
+📊 **Circuit and Flow Diagrams** – created using Draw.io  
+📷 **Photos & Video Demonstrations** – visual proof of working model
+
+---
+
+## 👨‍💻 Contributors
+
+- **Ashish Kumar** – Core Developer, ML & IoT Integration, Hardware & Circuit Implementation, Firebase Integration, Testing & Documentation
+
+---
+
+## 📃 License
+
+This project is licensed under the **GNU General Public License v3.0**.
+
+You are free to use, modify, and redistribute this project under the terms of the GPL. Any modified or extended versions must also remain open-source under the same license.
+
+🔗 [View Full License Text](https://www.gnu.org/licenses/gpl-3.0.en.html)
+
+---
+
+## 🙌 Contributing
+
+Contributions, improvements, or adaptations for large-scale agriculture are welcome. Fork the repo, raise an issue, or open a pull request to get involved.
+
+---
+
+## 📫 Contact
+
+For questions, suggestions, or collaboration:  
+📧 *Contact Ashish Kumar via GitHub Issues or LinkedIn (www.linkedin.com/in/ashish-kumar-21uei009)*
+
+---
